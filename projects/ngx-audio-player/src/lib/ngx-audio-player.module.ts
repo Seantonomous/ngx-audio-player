@@ -7,8 +7,7 @@ import { AudioPlayerService } from './service/audio-player-service/audio-player.
 import { CommonModule } from '@angular/common';
 import { SecondsToMinutesPipe } from './pipe/seconds-to-minutes';
 import { MatAdvancedAudioPlayerComponent } from './component/mat-advanced-audio-player/mat-advanced-audio-player.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import {
   faPlay, faPause, faSpinner, faStepForward, faStepBackward, faVolumeMute, faVolumeUp
 } from '@fortawesome/free-solid-svg-icons';
@@ -29,8 +28,13 @@ export class MaterialModule { }
   providers: [AudioPlayerService]
 })
 export class NgxAudioPlayerModule {
-  constructor() {
+  constructor(library: FaIconLibrary) {
     // Icons for User Favorite Page
-    library.add(faPlay, faPause, faSpinner, faStepForward, faStepBackward, faVolumeMute, faVolumeUp);
+    library.addIcons(faPlay)
+    library.addIcons(faPause)
+    library.addIcons(faSpinner)
+    library.addIcons(faStepBackward)
+    library.addIcons(faVolumeMute)
+    library.addIcons(faVolumeUp)
   }
 }
